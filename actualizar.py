@@ -2,6 +2,7 @@
 """Actualiza los plugins del servidor desde Modrinth según plugins.txt."""
 import argparse
 import fnmatch
+import glob
 import hashlib
 import json
 import os
@@ -34,13 +35,18 @@ def sha512(path):
 
 
 def version_mc(server_dir):
-    # Paper escribe algo como {"currentVersion": "26.3-235-bb10cf0 (MC: 26.3)"}
+    # Paper antiguo: "... (MC: 1.21.4)"; Paper 26.x: "26.3-235-main@bb10cf0 (...)"
     try:
         with open(os.path.join(server_dir, "version_history.json")) as f:
-            m = re.search(r"MC: ([\d.]+)", json.load(f)["currentVersion"])
-        return m.group(1) if m else None
+            actual = json.load(f)["currentVersion"]
+        m = re.search(r"MC: ([\d.]+)", actual) or re.match(r"(\d+\.\d+(?:\.\d+)?)-", actual)
+        if m:
+            return m.group(1)
     except (OSError, KeyError, ValueError):
-        return None
+        pass
+    # Paperclip deja el servidor en versions/<mc>/paper-<mc>.jar; la más reciente es la que corre
+    jars = glob.glob(os.path.join(server_dir, "versions", "*", "paper-*.jar"))
+    return os.path.basename(os.path.dirname(max(jars, key=os.path.getmtime))) if jars else None
 
 
 def elegir(versiones, mc):
