@@ -17,6 +17,8 @@ minimotd            minimotd-*.jar
 tab-was-taken       tab*.jar
 otterlib            otterlib*.jar                  # librería que necesita DirectionHUD
 directionhud        directionhud*.jar
+simple-voice-chat   voicechat-*.jar                # chat de voz; cada jugador necesita el mod en su cliente
+chunky              chunky-*.jar                   # pregenera el mapa para que explorar no dé tirones
 
 # Opcionales: quita el # para activarlos.
 # coreprotect           coreprotect*.jar           # registra quién rompe/abre qué, y permite deshacerlo
