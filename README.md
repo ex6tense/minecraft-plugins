@@ -1,0 +1,50 @@
+# minecraft-plugins
+
+Lista de plugins de mi servidor Paper y un script que los deja al día con un comando.
+
+El repo **no guarda los `.jar`**: solo la lista ([`plugins.txt`](plugins.txt)). El script descarga cada plugin desde [Modrinth](https://modrinth.com), elige la versión para la versión de Minecraft del servidor, comprueba el hash SHA-512 y reemplaza el `.jar` viejo. Los viejos se guardan en `plugins-respaldo/<fecha>/` junto a la carpeta `plugins`, por si hay que volver atrás.
+
+## Uso
+
+Instalación (una vez, dentro del servidor):
+
+```bash
+apt install -y git python3
+git clone https://github.com/ex6tense/minecraft-plugins /opt/minecraft-plugins
+```
+
+Actualizar (hace `git pull` del repo y luego actualiza los plugins):
+
+```bash
+python3 /opt/minecraft-plugins/actualizar.py
+```
+
+Después, reinicia el servidor para que cargue los plugins nuevos.
+
+Opciones:
+
+| Opción | Para qué |
+|---|---|
+| `-n` / `--simular` | Muestra qué cambiaría, sin tocar nada |
+| `--dir RUTA` | Carpeta `plugins` del servidor (por defecto la de la instancia de AMP) |
+| `--mc 26.3` | Fuerza la versión de Minecraft si no se detecta sola (se lee de `version_history.json`) |
+| `--sin-pull` | No hace `git pull` antes |
+
+Si un plugin todavía no tiene versión para tu Minecraft exacto, se instala la más nueva de la misma serie (por ejemplo 26.2 en un servidor 26.3) y el script lo avisa.
+
+## Añadir o quitar un plugin
+
+Edita [`plugins.txt`](plugins.txt): una línea por plugin con su *slug* de Modrinth (lo que va después de `modrinth.com/plugin/`) y los patrones de los `.jar` que reemplaza. Para quitar uno, comenta su línea con `#` y borra su `.jar` de la carpeta `plugins`.
+
+## Cambios respecto a lo que tenía
+
+- **ProTPA → TPA** (`tpaa`): ProTPA dejó de actualizarse en 1.21.7.
+- **DeathChest → AxGraves**: DeathChest perdió los datos de los cofres al pasar a 26.x.
+- **Sleeper → regla de juego**: Minecraft ya lo trae: `gamerule players_sleeping_percentage 1` (basta con que duerma uno).
+- InteractionVisualizer y Damage Indicator quedan como opcionales; CoreProtect está en la lista, comentado, para registrar quién rompe o abre qué.
+
+## Pruebas
+
+```bash
+python3 test_actualizar.py
+```

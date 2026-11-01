@@ -1,0 +1,23 @@
+# Plugins del servidor (Paper). Una línea por plugin:
+#   <slug de Modrinth>   <patrones de los .jar viejos que reemplaza>
+# El slug es lo que va después de modrinth.com/plugin/ en la URL.
+# Los patrones no distinguen mayúsculas; los .jar que coincidan se mueven a
+# plugins-respaldo/ cuando se instala la versión nueva.
+# Para desactivar un plugin, comenta su línea con #.
+
+simple-login        simplelogin*.jar
+skinsrestorer       skinsrestorer*.jar
+sethome             sethome*.jar
+tpaa                tpa-*.jar protpa*.jar          # reemplaza a ProTPA (abandonado en 1.21.7)
+backpack-plus       backpackplus*.jar
+gsit                gsit*.jar
+farmassistreboot    farmassistreboot*.jar
+axgraves            axgraves*.jar deathchest*.jar  # reemplaza a DeathChest (perdía los cofres)
+minimotd            minimotd-*.jar
+tab-was-taken       tab*.jar
+directionhud        directionhud*.jar
+
+# Opcionales: quita el # para activarlos.
+# coreprotect           coreprotect*.jar           # registra quién rompe/abre qué, y permite deshacerlo
+# interactionvisualizer interactionvisualizer*.jar
+# damage-indicator      damage-indicator*.jar damageindicator*.jar
