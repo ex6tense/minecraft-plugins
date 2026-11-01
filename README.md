@@ -49,9 +49,11 @@ El chat de voz necesita un mod en cada cliente. El pack (`.mrpack`) lo instala t
 
 Para jugar:
 
-1. Instala el [Modrinth App](https://modrinth.com/app) (o Prism Launcher).
-2. Descarga el `.mrpack` de la [última release](https://github.com/ex6tense/minecraft-plugins/releases/latest).
-3. En el launcher: **Agregar instancia → Importar desde archivo** y elige el `.mrpack`.
+1. Instala un launcher que importe `.mrpack`:
+   - Cuenta **premium**: [Modrinth App](https://modrinth.com/app) o [Prism Launcher](https://prismlauncher.org).
+   - Cuenta **no premium**: [PrismLauncher-Cracked](https://github.com/Diegiwg/PrismLauncher-Cracked/releases) (descárgalo solo de ahí). En **Cuentas → Añadir offline** usa el mismo nombre que está en la whitelist.
+2. Consigue el `.mrpack` (te lo paso yo, o de la [última release](https://github.com/ex6tense/minecraft-plugins/releases/latest) si existe).
+3. En el launcher: **Añadir instancia → Importar** y elige el `.mrpack`.
 4. Abre la instancia y entra al servidor. En el juego, **V** abre la configuración de voz.
 
 Para regenerarlo cuando cambie la versión del servidor o salgan versiones nuevas de los mods:
