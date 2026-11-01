@@ -101,8 +101,14 @@ def main():
 
     for slug, patrones in leer_lista(os.path.join(REPO, "plugins.txt")):
         try:
-            q = urllib.parse.urlencode({"loaders": json.dumps(LOADERS)})
-            v, exacta = elegir(json.loads(get(f"https://api.modrinth.com/v2/project/{slug}/version?{q}")), mc)
+            v, exacta = None, False
+            for loaders in (["paper"], LOADERS):  # la variante Paper primero; si no hay para mc, cualquiera
+                q = urllib.parse.urlencode({"loaders": json.dumps(loaders)})
+                cand, cand_exacta = elegir(json.loads(get(f"https://api.modrinth.com/v2/project/{slug}/version?{q}")), mc)
+                if cand and (cand_exacta or not v):
+                    v, exacta = cand, cand_exacta
+                if exacta:
+                    break
             if not v:
                 raise RuntimeError(f"no hay versión para {mc.split('.')[0]}.x")
             f = next((f for f in v["files"] if f["primary"]), v["files"][0])

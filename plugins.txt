@@ -15,6 +15,7 @@ farmassistreboot    farmassistreboot*.jar
 axgraves            axgraves*.jar deathchest*.jar  # reemplaza a DeathChest (perdía los cofres)
 minimotd            minimotd-*.jar
 tab-was-taken       tab*.jar
+otterlib            otterlib*.jar                  # librería que necesita DirectionHUD
 directionhud        directionhud*.jar
 
 # Opcionales: quita el # para activarlos.
