@@ -52,7 +52,7 @@ Para jugar:
 1. Instala un launcher que importe `.mrpack`:
    - Cuenta **premium**: [Modrinth App](https://modrinth.com/app) o [Prism Launcher](https://prismlauncher.org).
    - Cuenta **no premium**: [PrismLauncher-Cracked](https://github.com/Diegiwg/PrismLauncher-Cracked/releases) (descárgalo solo de ahí). En **Cuentas → Añadir offline** usa el mismo nombre que está en la whitelist.
-2. Consigue el `.mrpack` (te lo paso yo, o de la [última release](https://github.com/ex6tense/minecraft-plugins/releases/latest) si existe).
+2. Descarga el pack: [ex6tense-26.3.mrpack](https://github.com/ex6tense/minecraft-plugins/raw/main/dist/ex6tense-26.3.mrpack).
 3. En el launcher: **Añadir instancia → Importar** y elige el `.mrpack`.
 4. Abre la instancia y entra al servidor. En el juego, **V** abre la configuración de voz.
 
@@ -62,7 +62,7 @@ Para regenerarlo cuando cambie la versión del servidor o salgan versiones nueva
 python3 generar_pack.py --mc 26.3
 ```
 
-Deja el archivo en `dist/`; súbelo como una release nueva.
+Sobrescribe el archivo en `dist/`; haz commit y push para que el enlace de descarga sirva la versión nueva.
 
 ## Pruebas
 
