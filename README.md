@@ -43,6 +43,25 @@ Edita [`plugins.txt`](plugins.txt): una línea por plugin con su *slug* de Modri
 - **Sleeper → regla de juego**: Minecraft ya lo trae: `gamerule players_sleeping_percentage 1` (basta con que duerma uno).
 - InteractionVisualizer y Damage Indicator quedan como opcionales; CoreProtect está en la lista, comentado, para registrar quién rompe o abre qué.
 
+## Modpack para los jugadores
+
+El chat de voz necesita un mod en cada cliente. El pack (`.mrpack`) lo instala todo de una vez: Minecraft 26.3, Fabric Loader, Fabric API, Simple Voice Chat y Sodium. Además deja el servidor `mc.ex6tenseiscool.co.in` ya añadido en la lista, con su paquete de recursos aceptado.
+
+Para jugar:
+
+1. Instala el [Modrinth App](https://modrinth.com/app) (o Prism Launcher).
+2. Descarga el `.mrpack` de la [última release](https://github.com/ex6tense/minecraft-plugins/releases/latest).
+3. En el launcher: **Agregar instancia → Importar desde archivo** y elige el `.mrpack`.
+4. Abre la instancia y entra al servidor. En el juego, **V** abre la configuración de voz.
+
+Para regenerarlo cuando cambie la versión del servidor o salgan versiones nuevas de los mods:
+
+```bash
+python3 generar_pack.py --mc 26.3
+```
+
+Deja el archivo en `dist/`; súbelo como una release nueva.
+
 ## Pruebas
 
 ```bash

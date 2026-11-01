@@ -2,6 +2,12 @@ import os
 import tempfile
 
 from actualizar import elegir, leer_lista, version_mc
+from generar_pack import servers_dat
+
+dat = servers_dat("A", "b.c")
+assert dat == (b"\x0a\x00\x00" b"\x09\x00\x07servers" b"\x0a\x00\x00\x00\x01"
+               b"\x08\x00\x04name\x00\x01A" b"\x08\x00\x02ip\x00\x03b.c"
+               b"\x01\x00\x0eacceptTextures\x01" b"\x00" b"\x00")
 
 vs = [
     {"version_number": "3", "game_versions": ["26.2"]},
